@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Utility\ClientCsv;
+use App\Http\Requests\ClientFormRequest;
 
 class ClientController extends Controller
 {
@@ -31,7 +32,6 @@ class ClientController extends Controller
      */
     public function create()
     {
-        $csv = new ClientCsv('data', 'clients.csv');
         return view('create',[
             'page_title' => 'Client Information',
         ]);
@@ -43,7 +43,7 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClientFormRequest $request)
     {
         $data = $request->except('_token');
         $csv = new ClientCsv('data', 'clients.csv');

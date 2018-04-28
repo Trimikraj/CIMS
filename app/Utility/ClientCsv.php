@@ -13,10 +13,12 @@ class ClientCsv {
         $this->filename = $filename;
     }
 
+    /*returns a full path to the csv file*/
     public function fullPath() {
         return $_SERVER['DOCUMENT_ROOT'].'/'. $this->path.'/'. $this->filename;
     }
 
+    /*returns client data as an array*/
     public function all() {
         $csv = array_map('str_getcsv', file($this->fullPath()));
         
@@ -31,10 +33,12 @@ class ClientCsv {
         return $clients;
     }
 
+    /*function to make key-value pair*/
     public function manageArray($key, $value) {
         return array_combine($key, $value);
     }
 
+    /*save single row of data in csv file with an unique id*/
     public function save($data) {
         $csv = array_map('str_getcsv', file($this->fullPath()));
         $file = fopen($this->fullPath(),'a');
