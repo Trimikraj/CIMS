@@ -1,10 +1,23 @@
-## Custom Utility Class
-To work with Csv file i have created a utility class ClientCsv 
-which helps to write read all data from csv and write single row of data to csv. 
-
-#### to use the utility class ClientCsv
-*path should be absolute path*
-*filename has to be with .csv extension*
+## Startup
+For running the project, use the following commands in a terminal.
 ```
+git clone https://github.com/Trimikraj/CIMS.git
+cd CIMS 
+composer install
+php artisan serve
+```
+
+## Custom Utility Class
+To work with CSV file a utility class ClientCsv was created.
+This helped to read all data and write single row of data to CSV file.
+
+#### To use the utility class ClientCsv
+*Path should be absolute path*
+
+*Filename has to be with .csv extension*
+
+```php
+use App\Utility\ClientCsv;
+
 $csv = new ClientCsv(path, filename);
 ```
