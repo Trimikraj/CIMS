@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,16 +12,17 @@
     <link rel="stylesheet" href="{{ asset("bootstrap/css/bootstrap-datetimepicker.min.css") }}">
 
     <style>
-        .formStyle{
+        .formStyle {
             background: #dcdcdc;
             border: 2px solid #cecece;
             border-radius: 8px;
-            padding:20px;
+            padding: 20px;
             margin-bottom: 20px;
         }
     </style>
-    
+
 </head>
+
 <body>
     <div class="container">
         @yield('content')
@@ -30,8 +32,8 @@
     <script src="{{ asset("bootstrap/js/jquery.min.js") }}"></script>
     <script src="{{ asset("bootstrap/js/bootstrap-datetimepicker.min.js") }}"></script>
     <script src="{{ asset("bootstrap/js/bootstrap.min.js") }}"></script>
-    
-        @yield('scripts')
+
+    @yield('scripts')
 </body>
 
 </html>

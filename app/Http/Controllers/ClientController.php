@@ -8,6 +8,14 @@ use App\Http\Requests\ClientFormRequest;
 
 class ClientController extends Controller
 {
+
+    private $csv;
+
+    function __construct() {
+        $csv = new ClientCsv('data', 'clients.csv');
+        $this->csv = $csv;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +23,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $csv = new ClientCsv('data', 'clients.csv');
-        $clients = $csv->all();
+        
+        $clients = $this->csv->all();
         $page_title = 'Index';
         return view('home', compact('page_title', 'clients'));
     }
@@ -46,8 +54,7 @@ class ClientController extends Controller
     public function store(ClientFormRequest $request)
     {
         $data = $request->except('_token');
-        $csv = new ClientCsv('data', 'clients.csv');
-        $csv->save($data);
+        $this->csv->save($data);
         return redirect('/');
     }
 

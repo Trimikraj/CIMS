@@ -1,17 +1,16 @@
-@extends('layouts.master');
+@extends('layouts.master'); 
 @section('content')
 
 <div class="container col-xs-5 formStyle">
     <form method="post" action="{{url('/store')}}" id="clientForm">
         <div class="col-xs-12">
-            
-            @include('partials.error')
+    @include('partials.error')
 
             <div class="form-group">
                 <label>Name of the Client: </label>
                 <input type="text" class="form-control" name="name" placeholder="Name" minlength="3" required />
             </div>
-            
+
             <div class="form-group">
                 <label>Gender: </label>
                 <input type="radio" name="gender" value="male" checked="checked">Male
@@ -24,7 +23,7 @@
                 <input type="" class="form-control" name="phone" id="phone" placeholder="Phone" required />
                 <span style="display:none" id="phoneError">Phone no must be of 10 Digits</span>
             </div>
-            
+
             <div class="form-group">
                 <label>Email: </label>
                 <input type="email" class="form-control" name="email" placeholder="Email" required />
@@ -32,12 +31,12 @@
 
             <div class="form-group">
                 <label>Address: </label>
-                <input type="text" class="form-control" name="address" placeholder="Address" required />
+                <input type="text" class="form-control" name="address" minlength="3" placeholder="Address" required />
             </div>
 
             <div class="form-group">
                 <label>Nationality: </label>
-                <select name="nationality"class="form-control" required>
+                <select name="nationality" class="form-control" required>
                     <option value="">--- Select a Nationality ---</option>
                     @foreach (\App\Utility\ClientNationality::all() as $nationality)
                     <option value="{{$nationality}}">{{$nationality}}</option>
@@ -80,14 +79,12 @@
         </div>
     </form>
 </div>
-
-
 @endsection
-
+ 
 @section('scripts')
 
-    <script>
-        $(function(){
+<script>
+    $(function(){
 
             $("#dob").datetimepicker({
             format: 'YYYY-MM-DD'
@@ -107,8 +104,6 @@
             });
 
         });
-        
 
-    </script>
-    
+</script>
 @endsection
